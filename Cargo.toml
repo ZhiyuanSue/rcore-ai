@@ -1,0 +1,28 @@
+[package]
+name = "hello_rcore"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"
+test = false
+bench = false
+
+[profile.dev]
+panic = "abort"
+opt-level = 0
+debug = true
+debug-assertions = true
+overflow-checks = true
+lto = false
+
+[profile.release]
+panic = "abort"
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = true
+
+[dependencies]
